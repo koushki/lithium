@@ -1,4 +1,4 @@
-# Lithium
+# li₃
 
 ### You asked for a better framework. Here it is.
 

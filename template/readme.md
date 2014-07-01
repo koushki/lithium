@@ -30,11 +30,12 @@ the former explanation. When direct access to a method or property on `$this` is
 contained in the shorthands syntax, it will be output as normal without being
 filtered. This is to make it easier to work with helpers that return markup.
 
-An example would be something like: {{{
+An example would be something like: 
+```
 <?=$this->form->create(); ?>
 ... my form here ...
 <?=$this->form->end(); ?>
-}}}
+```
 
 **Note:** `$h()` is the HTML escape function used in views.
 
@@ -48,9 +49,10 @@ An example would be something like: {{{
 ## Using helpers
 
 Helpers are lazy-loaded by the current renderer. To use a helper, you can
-reference it by its name like this: {{{
+reference it by its name like this: 
+```
 echo $this->html->link('Example', 'http://www.example.com');
-}}}
+```
 
 In a template, `$this` refers to the `Renderer` object. By using `$this->html`
 for the first time, the renderer will create an instance of the helper and store
@@ -73,7 +75,7 @@ placing your helper in the correct namespace. By default, helpers belong in the
 `<library>\extensions\helper` namespace, but this can be changed through configuration (see the
 [the `Libraries` class](core/Libraries)). For example, consider the following class, saved as
 `extensions/helper/Custom.php`:
-{{{
+```
 <?php
 
 namespace app\extensions\helper;
@@ -86,12 +88,12 @@ class Custom extends \lithium\template\Helper {
 }
 
 ?>
-}}}
+```
 
 You can then use your helper in templates as follows:
-{{{
+```
 <?=$this->custom->greeting('World'); ?>
-}}}
+```
 
 Your custom helper will then be auto-loaded into the templating engine from your application or a
 plugin.
@@ -104,7 +106,7 @@ classes like helpers can be extended and replaced seamlessly, without any change
 For example, to add or replace methods in the `Form` helper, you can add the following to
 `extensions/helper/Form.php`:
 
-{{{
+```
 <?php
 
 namespace app\extensions\helper;
@@ -115,7 +117,7 @@ class Form extends \lithium\template\helper\Form {
 }
 
 ?>
-}}}
+```
 
 Your custom `Form` helper will now be invoked in all instances where `$this->form` is called in a
 template. For more information on the load order of classes, see
@@ -125,26 +127,26 @@ template. For more information on the load order of classes, see
 
 Elements are reusable view snippets that you can use in several views and layouts.
 You can reference it like so:
-{{{
+```
 echo $this->_render('element', 'menu');
-}}}
+```
 
 Where `menu` is the name of your element file, in this example `views/elements/menu.html.php`.  When using `$this->_render()`, all of the variables set in the controller are available to the element template.  You can pass variables declared in the view or additional static content using the third parameter to `$this->_render()`:
-{{{
+```
 $var1 = 'something';
 echo $this->_render('element', 'menu', array(
 	'var1' => $var1,
 	'var2' => 'something else'
 ));
-}}}
+```
 
 If you need the element template to not have access to existing data passed to the parent template, use the alternate syntax that calls the `View` render method directly:
-{{{
+```
 echo $this->view()->render(
 	array('element' => 'menu'),
 	array('var1' => $var1, 'var2' => $var2)
 );
-}}}
+```
 
 **More info**
 

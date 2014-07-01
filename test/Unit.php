@@ -117,14 +117,14 @@ class Unit extends \lithium\core\Object {
 	 * testing.
 	 *
 	 * For example:
-	 * {{{
+	 * ```
 	 * public function skip() {
 	 *     $this->_dbConfig = Connections::get('default', array('config' => true));
 	 *     $hasDb = (isset($this->_dbConfig['adapter']) && $this->_dbConfig['adapter'] == 'MySql');
 	 *     $message = 'Test database is either unavailable, or not using a MySQL adapter';
 	 *     $this->skipIf(!$hasDb, $message);
 	 * }
-	 * }}}
+	 * ```
 	 */
 	public function skip() {}
 
@@ -336,15 +336,15 @@ class Unit extends \lithium\core\Object {
 	 * Checks that the result evaluates to true.
 	 *
 	 * For example:
-	 * {{{
+	 * ```
 	 * $this->assertTrue('false', 'String has content');
-	 * }}}
-	 * {{{
+	 * ```
+	 * ```
 	 * $this->assertTrue(10, 'Non-Zero value');
-	 * }}}
-	 * {{{
+	 * ```
+	 * ```
 	 * $this->assertTrue(true, 'Boolean true');
-	 * }}}
+	 * ```
 	 * all evaluate to true.
 	 *
 	 * @param mixed $result
@@ -360,17 +360,17 @@ class Unit extends \lithium\core\Object {
 	 * Checks that the result evaluates to false.
 	 *
 	 * For example:
-	 * {{{
+	 * ```
 	 * $this->assertFalse('', 'String is empty');
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertFalse(0, 'Zero value');
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertFalse(false, 'Boolean false');
-	 * }}}
+	 * ```
 	 * all evaluate to false.
 	 *
 	 * @param mixed $result
@@ -428,12 +428,12 @@ class Unit extends \lithium\core\Object {
 	 *
 	 * Checks for an input tag with a name attribute (contains any non-empty value) and an id
 	 * attribute that contains 'my-input':
-	 * {{{
+	 * ```
 	 *     array('input' => array('name', 'id' => 'my-input'))
-	 * }}}
+	 * ```
 	 *
 	 * Checks for two p elements with some text in them:
-	 * {{{
+	 * ```
 	 * array(
 	 *     array('p' => true),
 	 *     'textA',
@@ -442,16 +442,16 @@ class Unit extends \lithium\core\Object {
 	 *     'textB',
 	 *     '/p'
 	 * )
-	 * }}}
+	 * ```
 	 *
 	 * You can also specify a pattern expression as part of the attribute values, or the tag
 	 * being defined, if you prepend the value with preg: and enclose it with slashes, like so:
-	 * {{{
+	 * ```
 	 * array(
 	 *     array('input' => array('name', 'id' => 'preg:/FieldName\d+/')),
 	 *     'preg:/My\s+field/'
 	 * )
-	 * }}}
+	 * ```
 	 *
 	 * Important: This function is very forgiving about whitespace and also accepts any
 	 * permutation of attribute order. It will also allow whitespaces between specified tags.
@@ -1145,13 +1145,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$count` and `count($arr)` are equal.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertCount(1, array('foo'));
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertCount(2, array('foo', 'bar', 'bar'));
-	 * }}}
+	 * ```
 	 *
 	 * @param  int    $expected Expected count
 	 * @param  array  $array    Result
@@ -1168,13 +1168,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$count` and `count($arr)` are not equal.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertNotCount(2, array('foo', 'bar', 'bar'));
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertNotCount(1, array('foo'));
-	 * }}}
+	 * ```
 	 *
 	 * @param  int    $expected Expected count
 	 * @param  array  $array    Result
@@ -1191,13 +1191,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$array` has key `$expected`.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertArrayHasKey('foo', array('bar' => 'baz'));
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertArrayHasKey('bar', array('bar' => 'baz'));
-	 * }}}
+	 * ```
 	 *
 	 * @param  string $key      Key you are looking for
 	 * @param  array  $array    Array to search through
@@ -1220,13 +1220,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$array` does not have key `$expected`.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertArrayNotHasKey('foo', array('bar' => 'baz'));
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertArrayNotHasKey('bar', array('bar' => 'baz'));
-	 * }}}
+	 * ```
 	 *
 	 * @param  int    $key      Expected count
 	 * @param  array  $array    Array to search through
@@ -1249,13 +1249,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$class` has an attribute `$attributeName`.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertClassHasAttribute('name', 'ReflectionClass');
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertClassHasAttribute('__construct', 'ReflectionClass');
-	 * }}}
+	 * ```
 	 *
 	 * @see    lithium\test\Unit::assertObjectHasAttribute()
 	 * @throws InvalidArgumentException When $class does not exist
@@ -1279,13 +1279,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$class` has an attribute `$attributeName`.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertClassNotHasAttribute('__construct', 'ReflectionClass');
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertClassNotHasAttribute('name', 'ReflectionClass');
-	 * }}}
+	 * ```
 	 *
 	 * @see    lithium\test\Unit::assertObjectNotHasAttribute()
 	 * @throws InvalidArgumentException When $class does not exist
@@ -1309,13 +1309,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$class` has a static property `$attributeName`.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertClassHasStaticAttribute('foobar', '\lithium\core\StaticObject');
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertClassHasStaticAttribute('_methodFilters', '\lithium\core\StaticObject');
-	 * }}}
+	 * ```
 	 *
 	 * @throws ReflectionException If the given class does not exist
 	 * @param  string        $attributeName Attribute you wish to look for
@@ -1341,13 +1341,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$class` does not have a static property `$attrName`.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertClassNotHasStaticAttribute('_methodFilters', '\lithium\core\StaticObject');
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertClassNotHasStaticAttribute('foobar', '\lithium\core\StaticObject')
-	 * }}}
+	 * ```
 	 *
 	 * @throws ReflectionException If the given class does not exist
 	 * @param  string        $attrName  Attribute you wish to look for
@@ -1373,13 +1373,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$haystack` contains `$needle` as a value.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertContains('foo', array('foo', 'bar', 'baz'));
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertContains(4, array(1,2,3));
-	 * }}}
+	 * ```
 	 *
 	 * @param  string $needle   The needle you are looking for
 	 * @param  mixed  $haystack An array, iterable object, or string
@@ -1410,13 +1410,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$haystack` does not contain `$needle` as a value.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertNotContains(4, array(1,2,3));
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertNotContains('foo', array('foo', 'bar', 'baz'));
-	 * }}}
+	 * ```
 	 *
 	 * @param  string $needle   Needle you are looking for
 	 * @param  mixed  $haystack Array, iterable object, or string
@@ -1447,13 +1447,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$haystack` contains only items of `$type`.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertContainsOnly('int', array(1,2,3));
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertContainsOnly('int', array('foo', 'bar', 'baz'));
-	 * }}}
+	 * ```
 	 *
 	 * @param  string $type     Data type to check for
 	 * @param  mixed  $haystack Array or iterable object
@@ -1479,13 +1479,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$haystack` does not have any of `$type`.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertNotContainsOnly('int', array('foo', 'bar', 'baz'));
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertNotContainsOnly('int', array(1,2,3));
-	 * }}}
+	 * ```
 	 *
 	 * @param  string $type     Data type to check for
 	 * @param  mixed  $haystack Array or iterable object
@@ -1511,13 +1511,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$haystack` contains only items of `$type`.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertContainsOnlyInstancesOf('stdClass', array(new \stdClass));
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertContainsOnlyInstancesOf('stdClass', array(new \lithium\test\Unit));
-	 * }}}
+	 * ```
 	 *
 	 * @param  string $class    Fully namespaced class name
 	 * @param  mixed  $haystack Array or iterable object
@@ -1541,13 +1541,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$actual` is empty.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertEmpty(1);
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertEmpty(array());
-	 * }}}
+	 * ```
 	 *
 	 * @param  string $actual   Variable to check
 	 * @param  string $message  optional
@@ -1563,13 +1563,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$actual` is not empty.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertNotEmpty(array());
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertNotEmpty(1);
-	 * }}}
+	 * ```
 	 *
 	 * @param  string $actual   Variable to check
 	 * @param  string $message  optional
@@ -1586,17 +1586,17 @@ class Unit extends \lithium\core\Object {
 	 * Will mark the test `true` if the contents of `$expected` are equal to the
 	 * contents of `$actual`.
 	 *
-	 * {{{
+	 * ```
 	 * $file1 = Libraries::get(true, 'path') . '/tests/mocks/md/file_1.md';
 	 * $file2 = Libraries::get(true, 'path') . '/tests/mocks/md/file_1.md.copy';
 	 * $this->assertFileEquals($file1, $file2);
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $file1 = Libraries::get(true, 'path') . '/tests/mocks/md/file_1.md';
 	 * $file2 = Libraries::get(true, 'path') . '/tests/mocks/md/file_2.md';
 	 * $this->assertFileEquals($file1, $file2);
-	 * }}}
+	 * ```
 	 *
 	 * @param  string $expected Path to the expected file
 	 * @param  string $actual   Path to the actual file
@@ -1613,17 +1613,17 @@ class Unit extends \lithium\core\Object {
 	 * Will mark the test `true` if the contents of `$expected` are not equal to
 	 * the contents of `$actual`.
 	 *
-	 * {{{
+	 * ```
 	 * $file1 = Libraries::get(true, 'path') . '/tests/mocks/md/file_1.md';
 	 * $file2 = Libraries::get(true, 'path') . '/tests/mocks/md/file_2.md';
 	 * $this->assertFileNotEquals($file1, $file2);
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $file1 = Libraries::get(true, 'path') . '/tests/mocks/md/file_1.md';
 	 * $file2 = Libraries::get(true, 'path') . '/tests/mocks/md/file_1.md.copy';
 	 * $this->assertFileNotEquals($file1, $file2);
-	 * }}}
+	 * ```
 	 *
 	 * @param  string $expected Path to the expected file
 	 * @param  string $actual   Path to the actual file
@@ -1639,13 +1639,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if the file `$actual` exists.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertFileExists(Libraries::get(true, 'path') . '/readme.md');
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertFileExists(Libraries::get(true, 'path') . '/does/not/exist.txt');
-	 * }}}
+	 * ```
 	 *
 	 * @param  string $actual   Path to the file you are asserting
 	 * @param  string $message  optional
@@ -1661,13 +1661,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if the file `$actual` does not exist.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertFileNotExists(Libraries::get(true, 'path') . '/does/not/exist.txt');
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertFileNotExists(Libraries::get(true, 'path') . '/readme.md');
-	 * }}}
+	 * ```
 	 *
 	 * @param  string $actual   Path to the file you are asserting
 	 * @param  string $message  optional
@@ -1683,13 +1683,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$expected` greater than `$actual`.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertGreaterThan(5, 3);
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertGreaterThan(3, 5);
-	 * }}}
+	 * ```
 	 *
 	 * @param  float|int $expected
 	 * @param  float|int $actual
@@ -1706,13 +1706,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$expected` great than or equal to `$actual`.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertGreaterThanOrEqual(5, 5);
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertGreaterThanOrEqual(3, 5);
-	 * }}}
+	 * ```
 	 *
 	 * @param  float|int $expected
 	 * @param  float|int $actual
@@ -1729,13 +1729,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$expected` less than `$actual`.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertLessThan(3, 5);
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertLessThan(5, 3);
-	 * }}}
+	 * ```
 	 *
 	 * @param  float|int $expected
 	 * @param  float|int $actual
@@ -1752,13 +1752,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$expected` is less than or equal to `$actual`.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertLessThanOrEqual(5, 5);
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertLessThanOrEqual(5, 3);
-	 * }}}
+	 * ```
 	 *
 	 * @param  float|int $expected
 	 * @param  float|int $actual
@@ -1775,13 +1775,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$actual` is a `$expected`.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertInstanceOf('stdClass', new stdClass);
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertInstanceOf('ReflectionClass', new stdClass);
-	 * }}}
+	 * ```
 	 *
 	 * @param  string $expected Fully namespaced expected class
 	 * @param  object $actual   Object you are testing
@@ -1798,13 +1798,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$actual` is not a `$expected`.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertNotInstanceOf('ReflectionClass', new stdClass);
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertNotInstanceOf('stdClass', new stdClass);
-	 * }}}
+	 * ```
 	 *
 	 * @param  string $expected Fully namespaced expected class
 	 * @param  object $actual   Object you are testing
@@ -1821,13 +1821,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$actual` if of type $expected.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertInternalType('string', 'foobar');
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertInternalType('int', 'foobar');
-	 * }}}
+	 * ```
 	 *
 	 * @param  string $expected Internal data type
 	 * @param  object $actual   Object you are testing
@@ -1845,13 +1845,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$actual` if not of type $expected.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertNotInternalType('int', 'foobar');
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertNotInternalType('string', 'foobar');
-	 * }}}
+	 * ```
 	 *
 	 * @param  string $expected Internal data type
 	 * @param  object $actual   Object you are testing
@@ -1869,13 +1869,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test as true if `$actual` is not null.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertNotNull(1);
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertNotNull(null);
-	 * }}}
+	 * ```
 	 *
 	 * @param  object $actual   Variable you are testing
 	 * @param  string $message  optional
@@ -1891,13 +1891,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$object` has an attribute `$attributeName`.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertObjectHasAttribute('name', 'ReflectionClass');
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertObjectHasAttribute('__construct', 'ReflectionClass');
-	 * }}}
+	 * ```
 	 *
 	 * @see    lithium\test\Unit::assertClassHasAttribute()
 	 * @throws InvalidArgumentException When $object is not an object
@@ -1920,13 +1920,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if `$object` has an attribute `$attributeName`.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertObjectNotHasAttribute('__construct', 'ReflectionClass');
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertObjectNotHasAttribute('name', 'ReflectionClass');
-	 * }}}
+	 * ```
 	 *
 	 * @see    lithium\test\Unit::assertClassHasNotAttribute()
 	 * @throws InvalidArgumentException When $object is not an object
@@ -1949,13 +1949,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if $actual matches $expected using `sprintf` format.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertStringMatchesFormat('%d', '10')
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertStringMatchesFormat('%d', '10.555')
-	 * }}}
+	 * ```
 	 *
 	 * @link   http://php.net/sprintf
 	 * @link   http://php.net/sscanf
@@ -1972,13 +1972,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if $actual doesn't match $expected using `sprintf` format.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertStringNotMatchesFormat('%d', '10.555')
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertStringNotMatchesFormat('%d', '10')
-	 * }}}
+	 * ```
 	 *
 	 * @link   http://php.net/sprintf
 	 * @link   http://php.net/sscanf
@@ -1995,13 +1995,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if $actual ends with `$expected`.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertStringEndsWith('bar', 'foobar');
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertStringEndsWith('foo', 'foobar');
-	 * }}}
+	 * ```
 	 *
 	 * @param  string $expected The suffix to check for
 	 * @param  string $actual   Value to test against
@@ -2018,13 +2018,13 @@ class Unit extends \lithium\core\Object {
 	/**
 	 * Will mark the test `true` if $actual starts with `$expected`.
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertStringStartsWith('foo', 'foobar');
-	 * }}}
+	 * ```
 	 *
-	 * {{{
+	 * ```
 	 * $this->assertStringStartsWith('bar', 'foobar');
-	 * }}}
+	 * ```
 	 *
 	 * @param  string $expected Prefix to check for
 	 * @param  string $actual   Value to test against

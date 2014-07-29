@@ -169,13 +169,12 @@ class Media extends \lithium\core\StaticObject {
 	 * object. Each assertion (array key) can be one of three different things:
 	 *
 	 * - `'type'` _boolean_: In the default routing, some routes have `{:type}` keys, which are
-	 *   designed to match file extensions in URLs. These values act as overrides for the HTTP
-	 *   `Accept` header, allowing different formats to be served with the same content type. For
-	 *    example, if you're serving [ JSONP](http://en.wikipedia.org/wiki/JSON#JSONP), you'll want
-	 *    to serve it with the same content-type as JavaScript (since it is JavaScript), but you
-	 *    probably won't want to use the same template(s) or other settings. Therefore, when serving
-	 *    JSONP content, you can specify that the extension defined in the type must be present in
-	 *    the URL:
+	 *   designed to match file extensions in URLs. These values act as overrides for the
+	 *   HTTP `Accept` header, allowing different formats to be served with the same content
+	 *   type. For example, if you're serving JSONP, you'll want to serve it with the same
+	 *   content-type as JavaScript (since it is JavaScript), but you probably won't want to
+	 *   use the same template(s) or other settings. Therefore, when serving JSONP content, you
+	 *   can specify that the extension defined in the type must be present in the URL:
 	 *  ```
 	 *  Media::type('jsonp', array('text/html'), array(
 	 *  	// template settings...
@@ -196,6 +195,7 @@ class Media extends \lithium\core\StaticObject {
 	 *   iPhone requests only. See `lithium\action\Request::detect()` for more information on adding
 	 *   detectors.
 	 *
+	 * @link http://en.wikipedia.org/wiki/JSON#JSONP
 	 * @see lithium\net\http\Media::$_types
 	 * @see lithium\net\http\Media::$_handlers
 	 * @see lithium\net\http\Media::negotiate()

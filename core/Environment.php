@@ -67,8 +67,8 @@ use lithium\util\Set;
  * Cache::write('userData', "User.{$request->id}", $user->data(), '+5 days');
  * ```
  *
- * In this configuration, the above example will automatically send cache writes to the file system
- * during local development, and to a [ memcache](http://memcached.org/) server in production.
+ * In this configuration, the above example will automatically send cache writes to the file
+ * system during local development, and to a memcache server in production.
  *
  * When writing classes that connect to other external resources, you can automatically take
  * advantage of environment-specific configurations by extending `Adaptable` and implementing
@@ -78,6 +78,7 @@ use lithium\util\Set;
  * you by automatically detecting which environment your application is running in. For additional
  * information, see the documentation for `Environment::is()`.
  *
+ * @link http://memcached.org
  * @see lithium\core\Adaptable
  */
 class Environment {

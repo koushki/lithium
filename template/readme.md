@@ -9,12 +9,12 @@ output escaped text in your views from Lithium is as follows: {{{
 
 This is where a lot of confusion comes in, because it is commonly misunderstood
 that Lithium depends on `short_open_tags`, however, that's not the case. The
-contents of a view are processed through a [ tokenizer](template/view/Compiler) before
+contents of a view are processed through a [tokenizer](template/view/Compiler) before
 it is included by PHP. The file is then `compiled` into the final PHP+HTML (or whatever
 other content type that is requested), which is then passed off to be fully rendered
 by the two-step view to its final form.
 
-See the PHP [ manual](http://php.net/manual/en/book.tokenizer.php) to learn more about tokens.
+See the PHP [manual](http://php.net/manual/en/book.tokenizer.php) to learn more about tokens.
 
 The stream wrapper reads the file and searches for anything that looks like
 `<?=...?>` and replaces it with `<?php echo $h(...); ?>`.
@@ -64,9 +64,9 @@ performance impact.
 
 **More info**
 
- - [ HTML helper](template/helper/Html)
- - [ Form helper](template/helper/Form)
- - [ Helper base class](template/Helper)
+ - [HTML helper](template/helper/Html)
+ - [Form helper](template/helper/Form)
+ - [Helper base class](template/Helper)
 
 ## Creating custom helpers
 
@@ -150,6 +150,6 @@ echo $this->view()->render(
 
 **More info**
 
- - [ View](template/View)
- - [ Renderer](template/view/Renderer)
- - [ File adapter](template/view/adapter/File)
+ - [View](template/View)
+ - [Renderer](template/view/Renderer)
+ - [File adapter](template/view/adapter/File)

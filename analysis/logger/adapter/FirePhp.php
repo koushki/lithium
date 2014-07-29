@@ -9,13 +9,13 @@
 namespace lithium\analysis\logger\adapter;
 
 /**
- * The `FirePhp` log adapter allows you to log messages to [ FirePHP](http://www.firephp.org/).
+ * The `FirePhp` log adapter allows you to log messages to FirePHP.
  *
  * This allows you to inspect native PHP values and objects inside the FireBug console.
  *
  * Because this adapter interacts directly with the `Response` object, some additional code is
- * required to use it. The simplest way to achieve this is to add a filter to the `Dispatcher`. For
- * example, the following can be placed in a bootstrap file:
+ * required to use it. The simplest way to achieve this is to add a filter to the `Dispatcher`.
+ * For example, the following can be placed in a bootstrap file:
  *
  * ```
  * use lithium\action\Dispatcher;

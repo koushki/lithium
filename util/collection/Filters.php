@@ -15,10 +15,10 @@ use Closure;
  * event-driven communication between classes without tight coupling and without depending on a
  * centralized publish/subscribe system.
  *
- * In Lithium itself, when creating a method that can be filtered, a method is implemented as a
- * [ closure](http://us2.php.net/manual/en/functions.anonymous.php) and is passed to either
- * `Object::_filter()` or `StaticObject::_filter()`. Each object internally maintains its own list
- * of filters, which are applied in these methods and passed to `Filters::run()`.
+ * In Lithium itself, when creating a method that can be filtered, a method is implemented as
+ * a closure and is passed to either `Object::_filter()` or `StaticObject::_filter()`. Each
+ * object internally maintains its own list of filters, which are applied in these methods and
+ * passed to `Filters::run()`.
  *
  * When implementing a custom filter system outside of Lithium, you can create your own list of
  * filters, and pass it to `$options['data']` in the `run()` method.
@@ -62,6 +62,7 @@ use Closure;
  * `$response` will always be modified by any custom logic present before being returned from
  * `run()`.
  *
+ * @link http://php.net/manual/en/functions.anonymous.php
  * @see lithium\util\collection\Filters::run()
  * @see lithium\core\Object::_filter()
  * @see lithium\core\StaticObject::_filter()

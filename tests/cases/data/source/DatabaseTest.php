@@ -587,6 +587,24 @@ class DatabaseTest extends \lithium\test\Unit {
 		$this->assertEqual($expected, $this->_db->sql);
 	}
 
+	public function testUpdateOnSomeOfFileds(){
+		$entity = new Record(array(
+			'model' => $this->_model,
+			'data' => array('id' => 1, 'title' => 'new post', 'body' => 'the body'),
+			'exists' => true
+		));
+		$entity->title = 'change post';
+
+		$query = new Query(compact('entity') + array('type' => 'update'));
+		$this->_db->update($query);
+
+		$result = $this->_db->sql;
+
+		$expected = "UPDATE {mock_database_posts} SET";
+		$expected .= " {title} = 'change post' WHERE {id} = 1;";
+		$this->assertEqual($expected, $result);
+	}
+
 	public function testDelete() {
 		$entity = new Record(array(
 			'model' => $this->_model,
